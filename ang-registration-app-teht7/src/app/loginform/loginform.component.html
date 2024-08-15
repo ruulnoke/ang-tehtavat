@@ -1,0 +1,25 @@
+<!--Sisäänkirjautumislomake-->
+
+<h2>Sisäänkirjautuminen</h2>
+<!-- lomakkeen nimi on logf ja tyyppi Angularin lomake ngForm -->
+<!-- novalidate disabloi selaimen sisäänrakennetun validoinnin joka voi häiritä -->
+<form #logf="ngForm" (ngSubmit)="onSubmit(logf.value, logf.valid!)" novalidate>
+  <div>
+    <!-- validaattori otetaan käyttöön kentän attribuuttina, required on sisäänrakennettu -->
+    <!-- ngModel liittää kentän  viittauksen lomakkeen tietomalliin -->
+    <!-- Chrome haluaa, että autocompleten tila on määritelty --->
+    <div class="form-group">
+      <label>Tunnus:</label> <input class="form-control" type="text" name="username" autocomplete="off" ngModel
+        required>
+    </div>
+    <div class="form-group">
+      <label>Salasana:</label> <input class="form-control" type="password" name="password" autocomplete="off" ngModel
+        required>
+    </div>
+  </div>
+  <!-- virheilmoitusta ei näy (eli on 'hidden')
+    jos username on kirjoitettu tai mihinkään lomakekenttään ei ole koskettu (pristine = true)-->
+  <span [hidden]="!logf.form.hasError('required', 'username')||logf.pristine">Vaaditaan käyttäjätunnus</span>
+  <span>{{this.error}}</span>
+  <button type="submit">Lähetä</button>
+</form>

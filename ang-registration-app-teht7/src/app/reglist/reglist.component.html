@@ -1,0 +1,30 @@
+<!--Näyttää listan ilmoittautuneista--->
+
+<!--Ilmoittautuneiden tiedot-->
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nimi</th>
+      <th scope="col">Email</th>
+      <th scope="col">Ruoka</th>
+      <th scope="col">Sauna</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--*ngFor (structural directive): toistaa isäntäelementin (li) 
+        jokaista listan (regs) elementtiä (reg) kohti -->
+    <tr *ngFor="let reg of regs">
+      <th>{{reg.id}}</th>
+      <td>{{reg.name}}</td>
+      <td>{{reg.email}}</td>
+      <td>{{reg.food}}</td>
+      <!--näytetään saunavalinnan mukainen teksti
+    jos saunavalinta ei ole true, ng-template -direktiivillä näytetään vaihtoehtoinen teksti---->
+      <td class="col" *ngIf="reg.sauna; else elseText">Osallistun saunailtaan</td><ng-template #elseText>En
+        osallistu
+        saunailtaan</ng-template>
+    </tr>
+  </tbody>
+</table>

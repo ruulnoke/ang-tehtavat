@@ -1,0 +1,7 @@
+:host {
+  background-color: rgb(219, 219, 230);
+  display: block;
+}
+input[type='number'] {
+  width: 50px;
+}

@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 400px auto;
+  gap: 1rem;
+}
+
+.grid-item {
+  padding: 0.6rem;
+}

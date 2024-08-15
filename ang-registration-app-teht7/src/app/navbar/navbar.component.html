@@ -1,0 +1,17 @@
+<!--Navigaatio-->
+
+<nav>
+  <li>
+    <a routerLink="/reglist">Ilmoittautuneet</a>
+  </li>
+  <li>
+    <a routerLink="/regform">Ilmoittautumislomake</a>
+  </li>
+  <li>
+    <!--kun ei ole kirjautunut, näkyy 'sisäänkirjautuminen'-->
+    <span><a *ngIf="this.authService.isLoggedIn === false" routerLink="/loginform">Sisäänkirjautuminen</a></span>
+    <!--kun on kirjautunut, näkyy 'uloskirjautuminen'-->
+    <span><a *ngIf="this.authService.isLoggedIn === true" routerLink="/loginform"
+        (click)="logOut()">Uloskirjautuminen</a></span>
+  </li>
+</nav>

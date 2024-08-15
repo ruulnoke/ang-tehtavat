@@ -1,0 +1,8 @@
+<div id="banner">
+  <h2>Olion ang-kotisivut</h2>
+  <nav>
+    <span *ngFor="let page of content">
+      <a [routerLink]="['/page', page.id]">{{page.name}}</a>
+    </span>
+  </nav>
+</div>

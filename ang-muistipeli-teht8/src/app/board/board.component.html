@@ -1,0 +1,13 @@
+<!-- (click) on event binding. Templaatin event on bindattu luokan metodiin-->
+<button (click)="newGame()">Uusi peli</button>
+
+<div class="board">
+  <!--*NgFor toistaa app-card -elementtiä kunnes koko cards-taulukko on käyty läpi-->
+  <app-card *ngFor="let card of cards; let i = index" [value]="card.value" [status]="cards[i].status" (click)="pick(i)">
+  </app-card>
+</div>
+
+<p>Kortteja käännetty: {{picks}}</p>
+
+<!--Jos gameSolved on true, tämä rivi näytetään-->
+<p class="solved" *ngIf="gameSolved">Ratkaistu!</p>

@@ -1,0 +1,6 @@
+<!--Card-komponentin templaatti: esittää vain pelikortin-->
+
+<!--ngClass: ehdollinen tyyliluokka -> painikkeen tyyli vaihtuu statuksen mukaan -->
+<button
+  [ngClass]="{'defaultCard': status === 'default', 'pickedCard': status === 'picked', 'matchedCard': status === 'matched'}"><span
+    class="cardValue">{{value}}</span></button>

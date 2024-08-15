@@ -1,0 +1,32 @@
+<!--Ilmoittautumislomake-->
+
+<h2>Ilmoittautumislomake</h2>
+<!--koko lomakkeen arvot lähetetään luokkaosaan onSubmitilla-->
+<!--submitoinnin jälkeen näkymä vaihtuu reglistiin (navigateToReglist()-metodi ajetaan)-->
+<!-- novalidate disabloi selaimen sisäänrakennetun validoinnin joka voi häiritä -->
+<form #regf="ngForm" (ngSubmit)="onSubmit(regf.value); navigateToReglist()" novalidate>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Nimi:</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" name="name" autocomplete="off" ngModel required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Email:</label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" name="email" autocomplete="off" ngModel required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label>Ruokavalinta:</label> <select name="food" ngModel required>
+      <option>Kala</option>
+      <option>Kasvis</option>
+      <option>Liha</option>
+    </select>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" name="sauna" ngModel />
+    <label class="form-check-label">Osallistun saunailtaan</label>
+  </div>
+  <button type="submit">Lähetä</button>
+</form>
